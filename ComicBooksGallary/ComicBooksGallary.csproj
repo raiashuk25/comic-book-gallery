@@ -106,13 +106,13 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\ComicBooks\Detail.cshtml" />
+    <Content Include="Views\SharedView\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
