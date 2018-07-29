@@ -4,34 +4,36 @@
     ViewBag.Title = Model.DisplayText;
 }
 
-<!DOCTYPE html>
+<h2>@Model.DisplayText</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-        <h1>@Model</h1>
-        <h2>Issue #@Model</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label>@Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label>@Model.IssueNumber</h5>
+            <h5><label>Favorite:</label>@(Model.Favorite ? "Yes" : "No")</h5>
+            @if (Model.Artists.Length > 0)
+            {
+                <h5>Artists</h5>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <li>
+                                <text>* @artist.Role: @artist.Name</text>
+                            </li>
+
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
         <h5>Description</h5>
         <div>@Html.Raw(Model.DescriptionHtml)</div>
-        @if (Model.Artists.Length > 0)
-        {
-            <h5>Artists</h5>
-            <div>
-                <ul>
-                    @foreach (var artist in Model.Artists)
-                    {
-                        <li>
-                            <text>* @artist.Role: @artist.Name</text>
-                        </li>
-
-                    }
-                </ul>
-            </div>
-        }
     </div>
-</body>
-</html>
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt="@Model.DisplayText" class="img-responsive" />
+    </div>
+</div>
+
